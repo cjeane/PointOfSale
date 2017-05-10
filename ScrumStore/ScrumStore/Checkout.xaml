@@ -1,0 +1,125 @@
+﻿<Window x:Class="ScrumStore.Checkout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScrumStore"
+        mc:Ignorable="d"
+        Title="Checkout" Height="400" Width="300"
+        Background="{DynamicResource WindowBrush}">
+    <Grid>
+
+
+
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="369" VerticalAlignment="Top" Width="292" RenderTransformOrigin="0.514,0.474" SelectionChanged="tabControl_SelectionChanged">
+            <TabItem Header="Edit Shipping" x:Name="tab1">
+                <StackPanel HorizontalAlignment="Left" Height="329" VerticalAlignment="Top" Width="242" Grid.RowSpan="6" Name="infoSetDisplay2" Grid.ColumnSpan="2">
+                    <Label x:Name="nameEdit" Content="Full name:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149"/>
+                    <TextBox x:Name="nameEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0"/>
+                    <Label x:Name="addressEdit" Content="Address Line:"/>
+                    <TextBox x:Name="addressEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0" />
+                    <Label x:Name="cityEdit" Content="City:"/>
+                    <TextBox x:Name="cityEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0"/>
+                    <Label x:Name="provinceEdit" Content="Province:"/>
+                    <TextBox x:Name="provinceEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0"/>
+                    <Label x:Name="postalEdit" Content="Postal Code:"/>
+                    <TextBox x:Name="postalEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0"/>
+                    <Button x:Name="editConfirm" Content="Confirm" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="0,10,0,0" Click="editConfirm_Click"/>
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="Confirm Address" x:Name="tab2" >
+                <StackPanel Grid.RowSpan="6" Margin="0,0,0,46" Name="infoSetDisplay1">
+                    <Label x:Name="shipName" Content="Name" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="28" Width="196" Grid.RowSpan="2" FontWeight="Bold"/>
+                    <Label x:Name="shipAddress" Content="Address" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="196"/>
+                    <Label x:Name="shipPostal" Content="Postal" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="196"/>
+                    <Label x:Name="shipCountry" Content="Country" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="196"/>
+                    <Button x:Name="buttonShipEdit" Content="Edit" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="buttonShipEdit_Click"/>
+                    <Button x:Name="buttonShip" Content="Continue to Payment" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="138" Height="25" Click="buttonShip_Click"/>
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="Review Order Summary" x:Name="tab3">
+                <Grid>
+                    <Label x:Name="label1" Content="Your Order Summary" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label2" Content="Order Subtotal:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,72,0,0"/>
+                    <Label x:Name="label3" Content="Taxes:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label4" Content="Discount/Credit:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label5" Content="Total:" HorizontalAlignment="Left" Margin="13,200,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="orderSubTotal" Content="$$$$$$$" HorizontalAlignment="Left" Margin="197,72,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="orderTax" Content="$$$$$$$" HorizontalAlignment="Left" Margin="197,103,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="orderDiscount" Content="$$$$$$$" HorizontalAlignment="Left" Margin="197,134,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="orderTotal" Content="$$$$$$$" HorizontalAlignment="Left" Margin="197,200,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="button1" Content="Confirm Order" HorizontalAlignment="Left" Margin="177,235,0,0" VerticalAlignment="Top" Width="95" Click="button1_Click"/>
+                    <Label x:Name="label6" Content="Available Credit:" HorizontalAlignment="Left" Margin="13,165,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="creditAmount" Content="$$$" HorizontalAlignment="Left" Margin="197,165,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="applyCredit" Content="Apply Credit" HorizontalAlignment="Left" Margin="13,235,0,0" VerticalAlignment="Top" Width="75"/>
+
+
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Payment Info" x:Name="tab4">
+                <StackPanel>
+                    <Label x:Name="paymentLabel" Content="Payment Information" />
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="cardNumLabel" Content="Credit Number:" Width="112"/>
+                        <TextBox x:Name="cc1" TextWrapping="Wrap" Text="####" Width="40" Margin="2"/>
+                        <TextBox x:Name="cc2" TextWrapping="Wrap" Text="####" Width="40" Margin="2"/>
+                        <TextBox x:Name="cc3" TextWrapping="Wrap" Text="####" Width="40" Margin="2"/>
+                        <TextBox x:Name="cc4" TextWrapping="Wrap" Text="####" Width="40" Margin="2"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="label" Content="Expiry Date:" Width="114"/>
+                        <ComboBox x:Name="monComboBox" Width="60"/>
+                        <Label Content="/"/>
+                        <ComboBox x:Name="yearComboBox" Width="80"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="nameCCLabel" Content="Name on Card: " Margin="0,0,20,0"/>
+                        <TextBox x:Name="nameCCText" TextWrapping="Wrap" Text="******" Width="160" Margin="2"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="cvcCCLabel" Content="CVC on Card: " Margin="0,0,30,0"/>
+                        <TextBox x:Name="cvcCCText" TextWrapping="Wrap" Text="***" Width="30" Margin="2"/>
+                    </StackPanel>
+                    <Button x:Name="button" Content="Review Total" Click="button_Click"/>
+
+
+                </StackPanel>
+
+            </TabItem>
+
+
+        </TabControl>
+
+
+
+        <!--<StackPanel HorizontalAlignment="Left" Height="329" VerticalAlignment="Top" Width="242" Grid.RowSpan="6" Name="infoSetDisplay2" Grid.ColumnSpan="2">
+            <Label x:Name="nameEdit" Content="Full name:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="149"/>
+            <TextBox x:Name="nameEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0"/>
+            <Label x:Name="addressEdit" Content="Address Line:"/>
+            <TextBox x:Name="addressEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0" />
+            <Label x:Name="cityEdit" Content="City:"/>
+            <TextBox x:Name="cityEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0"/>
+            <Label x:Name="provinceEdit" Content="Province:"/>
+            <TextBox x:Name="provinceEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0"/>
+            <Label x:Name="postalEdit" Content="Postal Code:"/>
+            <TextBox x:Name="postalEditTextBox" Height="25" TextWrapping="Wrap" Text="" BorderBrush="Black" Margin="2,0,10,0"/>
+            <Button x:Name="editConfirm" Content="Confirm" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="0,10,0,0" Click="editConfirm_Click"/>
+        </StackPanel>
+
+
+        <StackPanel Grid.RowSpan="6" Margin="0,0,0,148" Name="infoSetDisplay1">
+            <Label x:Name="shipName" Content="Name" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Height="28" Width="196" Grid.RowSpan="2" FontWeight="Bold"/>
+            <Label x:Name="shipAddress" Content="Address" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="196"/>
+            <Label x:Name="shipPostal" Content="Postal" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="196"/>
+            <Label x:Name="shipCountry" Content="Country" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="196"/>
+            <Button x:Name="buttonShip" Content="Ship to this address" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="138" Height="25" Click="buttonShip_Click"/>
+            <Button x:Name="buttonShipEdit" Content="Edit" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="buttonShipEdit_Click"/>
+        </StackPanel>-->
+
+    </Grid>
+
+</Window>
